@@ -3,11 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
+    <title>NicheCraft Automation - 1000 Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .service-category {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .service-category h3 {
+            margin-bottom: 10px;
+        }
+        .service-item {
+            margin: 10px 0;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .service-item button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>Your website is working!</p>
+    <div class="header">
+        <h1>NicheCraft Automation</h1>
+        <p>Offering 1000 Personalized AI-Powered Services for Niche Markets</p>
+    </div>
+
+    <div class="container">
+        <input type="text" id="search-bar" placeholder="Search for services...">
+
+        <div id="service-list"></div>
+    </div>
+
+    <script>
+        // Example services and categories (you will populate this dynamically from backend)
+        const services = [
+            {category: 'Creative Services Automation', name: 'Custom Video Creation'},
+            {category: 'AI-Powered Financial Services Automation', name: 'Automated Financial Planning'},
+            {category: 'Education & Learning Automation', name: 'Personalized Learning Paths'},
+            {category: 'Health & Wellness Automation', name: 'Fitness Plan Generator'},
+            // More services...
+        ];
+
+        const serviceList = document.getElementById('service-list');
+        const searchBar = document.getElementById('search-bar');
+
+        // Function to display services based on categories
+        function displayServices(serviceArray) {
+            serviceList.innerHTML = ''; // Clear current services
+
+            // Group services by category
+            const categories = {};
+            serviceArray.forEach(service => {
+                if (!categories[service.category]) {
+                    categories[service.category] = [];
+                }
+                categories[service.category].push(service);
+            });
+
+            // Display grouped services
+            for (let category in categories) {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'service-category';
+                categoryDiv.innerHTML = `<h3>${category}</h3>`;
+
+                categories[category].forEach(service => {
+                    const serviceDiv = document.createElement('div');
+                    serviceDiv.className = 'service-item';
+                    serviceDiv.innerHTML = `
+                        <p>${service.name}</p>
+                        <button onclick="purchaseService('${service.name}')">Purchase Service</button>
+                    `;
+                    categoryDiv.appendChild(serviceDiv);
+                });
+
+                serviceList.appendChild(categoryDiv);
+            }
+        }
+
+        // Filter services based on search input
+        searchBar.addEventListener('keyup', () => {
+            const searchText = searchBar.value.toLowerCase();
+            const filteredServices = services.filter(service => 
+                service.name.toLowerCase().includes(searchText) || 
+                service.category.toLowerCase().includes(searchText)
+            );
+            displayServices(filteredServices);
+        });
+
+        // Simulate purchasing service and redirecting to PayPal
+        function purchaseService(serviceName) {
+            window.location.href = `/purchase?service=${serviceName}`;  // Handle via back-end
+        }
+
+        // Initial display of services
+        displayServices(services);
+    </script>
 </body>
 </html>
-
