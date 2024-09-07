@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #0059b3;
+      transition: background-color 0.3s ease;
     }
 
-    .navbar {
-      background-color: #003366;
-      padding: 1rem;
-      text-align: center;
+    .navbar a:hover {
+      background-color: #004080;
     }
+
+    .navbar a.active {
+      background-color: #ff6600;
+    }
+  </style>
+</head>
