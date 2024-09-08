@@ -1,12 +1,21 @@
+/* Global styling using system fonts */
+body {
+    font-family: Arial, sans-serif; /* Faster loading since Arial is pre-installed on most systems */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navbar styling */
 .navbar {
     height: 100%;
-    width: 250px; /* Fixed width */
+    width: 250px;
     position: fixed;
     top: 0;
     left: 0;
     background-color: #1f1f1f;
     padding-top: 20px;
-    z-index: 1000; /* Make sure it's always on top */
 }
 
 .navbar a {
@@ -21,10 +30,47 @@
 .navbar a:hover {
     background-color: #00bfa5;
 }
+
+/* Main content styling */
 .main {
-    margin-left: 250px; /* Offset by navbar width */
+    margin-left: 250px;
     padding: 40px;
     background-color: #fff;
     min-height: 100vh;
     box-sizing: border-box;
+}
+
+/* Banner image */
+.banner-img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Heading and paragraph styling */
+h1, h2 {
+    color: #00bfa5;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: normal;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
