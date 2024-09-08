@@ -21,3 +21,10 @@
 .navbar a:hover {
     background-color: #00bfa5;
 }
+.main {
+    margin-left: 250px; /* Offset by navbar width */
+    padding: 40px;
+    background-color: #fff;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
