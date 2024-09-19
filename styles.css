@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,49 +6,74 @@ body {
     background-color: #f4f4f4;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 40px 20px;
-    text-align: center;
-}
-
 h1 {
-    margin: 0;
+    text-align: center;
+    margin-top: 20px;
     font-size: 2.5rem;
 }
 
-p {
-    font-size: 1.2rem;
-    margin-top: 10px;
+/* Product Section */
+.product {
+    display: flex;
+    align-items: flex-start;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px;
+    padding: 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.cta-buttons {
-    margin-top: 20px;
+.product-image {
+    max-width: 200px;
+    margin-right: 20px;
+    border-radius: 8px;
 }
 
+.product-info {
+    flex-grow: 1;
+}
+
+.product-info h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.product-info ul {
+    padding-left: 20px;
+}
+
+.product-info ul li {
+    list-style-type: disc;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    color: #555;
+}
+
+/* Buttons */
 .button {
-    padding: 15px 25px;
+    padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
-    margin-right: 10px;
-    font-size: 1rem;
+    margin-top: 10px;
+    display: inline-block;
 }
 
 .primary {
     background-color: #4CAF50;
     color: white;
+    border: none;
 }
 
-.secondary {
-    background-color: #333;
-    color: white;
+.primary:hover {
+    background-color: #45a049;
 }
 
-.button:hover {
-    opacity: 0.9;
-}
-
+/* Footer Styles */
 footer {
     background-color: #333;
     color: white;
@@ -63,40 +89,4 @@ footer nav a {
 
 footer nav a:hover {
     text-decoration: underline;
-}
-
-footer .social-icons {
-    margin-top: 10px;
-}
-
-.social-icons a {
-    color: white;
-    margin-right: 10px;
-    text-decoration: none;
-    font-size: 1.2rem;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    margin: 20px auto;
-}
-
-input, textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.9;
 }
