@@ -8,16 +8,18 @@ body {
 header {
     background: #333;
     color: #fff;
-    padding: 20px;
+    padding: 40px 20px;
     text-align: center;
 }
 
 h1 {
     margin: 0;
+    font-size: 2.5rem;
 }
 
 p {
-    font-size: 18px;
+    font-size: 1.2rem;
+    margin-top: 10px;
 }
 
 .cta-buttons {
@@ -25,43 +27,60 @@ p {
 }
 
 .button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 20px;
+    padding: 15px 25px;
     text-decoration: none;
     border-radius: 5px;
     margin-right: 10px;
+    font-size: 1rem;
+}
+
+.primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.secondary {
+    background-color: #333;
+    color: white;
 }
 
 .button:hover {
-    background-color: #45a049;
+    opacity: 0.9;
 }
 
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    padding: 20px 0;
 }
 
-nav a {
+footer nav a {
     color: white;
     padding: 10px;
     text-decoration: none;
 }
 
-nav a:hover {
+footer nav a:hover {
     text-decoration: underline;
+}
+
+footer .social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
 }
 
 form {
     display: flex;
     flex-direction: column;
     width: 300px;
-    margin: auto;
+    margin: 20px auto;
 }
 
 input, textarea {
@@ -77,17 +96,7 @@ button {
     border: none;
     cursor: pointer;
 }
-<footer>
-    <p>&copy; 2024 NicheCraft Automation. All rights reserved.</p>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-    <p>Find us on:</p>
-    <div class="social-icons">
-        <a href="your-social-link">Twitter</a>
-        <a href="your-social-link">LinkedIn</a>
-    </div>
-</footer>
+
+button:hover {
+    opacity: 0.9;
+}
