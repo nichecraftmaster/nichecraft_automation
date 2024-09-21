@@ -1,21 +1,20 @@
-<script>
-  function createInvoice(email, price) {
-    fetch('/.netlify/functions/node', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: email,
-        price: price
-      })
+function createInvoice() {
+  fetch('/.netlify/functions/node', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email: 'customer@example.com',
+      price: '1500.00',
+      service: 'AI-Powered Business Automation'
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Invoice Created:', data.invoiceId);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-  }
-</script>
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Invoice Created:', data.invoiceId);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
