@@ -1,35 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NicheCraft Automation</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <img src="images/OIP.jpg" alt="AI Technology Banner" style="width:100%;">
-        <h1>Discover the Best AI & Data Solutions</h1>
-        <p>Welcome to NicheCraft Automation, your trusted source for AI-powered tools and data-driven solutions! Explore expert recommendations and reviews to enhance productivity.</p>
-        <div class="cta-buttons">
-            <a href="products.html" class="button primary">Browse Products</a>
-            <a href="about.html" class="button secondary">Learn More</a>
-        </div>
-    </header>
-
-    <footer>
-        <p>&copy; 2024 NicheCraft Automation. All rights reserved.</p>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="blog.html">Blog</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <p>Find us on:</p>
-        <div class="social-icons">
-            <a href="https://twitter.com">Twitter</a>
-            <a href="https://linkedin.com">LinkedIn</a>
-        </div>
-    </footer>
-</body>
-</html
+<script>
+  function createInvoice(email, price) {
+    fetch('/.netlify/functions/node', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        price: price
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Invoice Created:', data.invoiceId);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+</script>
