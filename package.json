@@ -1,7 +1,0 @@
-{
-  "name": "your-site-name",
-  "version": "1.0.0",
-  "dependencies": {
-    "@paypal/checkout-server-sdk": "^1.0.2"
-  }
-}
