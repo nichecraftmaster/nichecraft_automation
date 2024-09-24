@@ -24,6 +24,8 @@ const renderPayPalButtons = () => {
                 // Add any additional actions here, like saving order info
             });
         }
+        // Include the order-confirmation.js functionality
+sendEmail(details);
     }).render('#paypal-button-container');
 };
 
