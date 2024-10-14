@@ -28,23 +28,26 @@
     <script src="https://js.stripe.com/v3/"></script>
 
     <script>
-        // Replace with your actual Stripe Publishable Key
+        // Replace with your real Stripe Publishable Key
         const stripe = Stripe('pk_test_51PwwklEovoaBMy97wL7sCG7p2oJ48jx1TUmjI6g6QA8c7Qanp6u7xZoNfbtuVR9q8Un7wnEula7d3XX5F4KbtZgC00z1rtcIRR');
 
         const checkoutButton = document.getElementById('checkout-button');
         checkoutButton.addEventListener('click', function () {
+            console.log('Checkout button clicked');
             fetch('/create-checkout-session', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to create session, response not OK');
+                }
+                return response.json();
+            })
             .then(session => {
-                // Log session for debugging
-                console.log('Session:', session);
-
-                // Redirect to Stripe Checkout
+                console.log('Session created:', session);
                 return stripe.redirectToCheckout({ sessionId: session.id });
             })
             .then(result => {
@@ -52,7 +55,10 @@
                     alert(result.error.message);
                 }
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Check the console for details.');
+            });
         });
     </script>
 </body>
