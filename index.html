@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Business Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Business</h1>
+        <p>Your journey to success starts here!</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Our Services</h2>
+            <p>We offer top-notch services that cater to your needs.</p>
+
+            <!-- Checkout Button added to the homepage -->
+            <button id="checkout-button" type="button">Checkout</button>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <p>Get in touch with us today to learn more about how we can help you grow.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Business. All rights reserved.</p>
+    </footer>
+
+    <!-- Stripe.js library -->
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script>
+        // Replace with your real Stripe Publishable Key
+        const stripe = Stripe('pk_test_51PwwklEovoaBMy97wL7sCG7p2oJ48jx1TUmjI6g6QA8c7Qanp6u7xZoNfbtuVR9q8Un7wnEula7d3XX5F4KbtZgC00z1rtcIRR'); 
+
+        const checkoutButton = document.getElementById('checkout-button');
+        checkoutButton.addEventListener('click', function () {
+            fetch('/api/create-checkout-session', {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(session => {
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(result => {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
