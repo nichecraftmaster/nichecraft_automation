@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Use your real Stripe Secret Key
+const stripe = require('stripe')(process.env.sk_test_51PwwklEovoaBMy97CKqxlF5Yvho8qYaGewgCDHpLAFGmjioSaKLi899x1eccZ5cH2T1NrUpejCOjWll9Y2heGSz500sevLAtvu); // Use your real Stripe Secret Key
 
 export default async function handler(req, res) {
     const session = await stripe.checkout.sessions.create({
