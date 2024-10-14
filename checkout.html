@@ -28,8 +28,8 @@
     <script src="https://js.stripe.com/v3/"></script>
 
     <script>
-        // Ensure you replace this with your real Stripe Publishable Key from the Stripe Dashboard
-        const stripe = Stripe(pk_test_51PwwklEovoaBMy97wL7sCG7p2oJ48jx1TUmjI6g6QA8c7Qanp6u7xZoNfbtuVR9q8Un7wnEula7d3XX5F4KbtZgC00z1rtcIRR);
+        // Replace the key below with your real Stripe Publishable Key
+        const stripe = Stripe('pk_test_51PwwklEovoaBMy97wL7sCG7p2oJ48jx1TUmjI6g6QA8c7Qanp6u7xZoNfbtuVR9q8Un7wnEula7d3XX5F4KbtZgC00z1rtcIRR');
 
         const checkoutButton = document.getElementById('checkout-button');
         checkoutButton.addEventListener('click', function () {
