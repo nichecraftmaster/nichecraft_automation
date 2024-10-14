@@ -15,20 +15,7 @@
         <section>
             <h2>Complete Your Purchase</h2>
             <form id="payment-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="service">Service:</label>
-                <select id="service" name="service">
-                    <option value="consulting">Premium Consulting</option>
-                    <option value="marketing">Digital Marketing</option>
-                    <option value="ecommerce">E-commerce Solutions</option>
-                </select>
-
-                <button type="submit">Pay Now</button>
+                <button id="checkout-button" type="button">Checkout</button>
             </form>
         </section>
     </main>
@@ -37,8 +24,28 @@
         <p>&copy; 2024 Your Business. All rights reserved.</p>
     </footer>
 
+    <!-- Stripe.js library -->
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="checkout.js"></script>
+
+    <script>
+        const stripe = Stripe('your-publishable-key-here'); // Replace with your Stripe Publishable Key
+
+        const checkoutButton = document.getElementById('checkout-button');
+        checkoutButton.addEventListener('click', function () {
+            fetch('/api/create-checkout-session', {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(session => {
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(result => {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
 </html>
-
