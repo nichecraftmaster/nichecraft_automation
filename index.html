@@ -3,27 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Business Website</title>
+    <title>Checkout</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to Your Business</h1>
-        <p>Your journey to success starts here!</p>
+        <h1>Complete Your Purchase</h1>
     </header>
 
     <main>
         <section>
-            <h2>Our Services</h2>
-            <p>We offer top-notch services that cater to your needs.</p>
-
-            <!-- Checkout Button added to the homepage -->
-            <button id="checkout-button" type="button">Checkout</button>
-        </section>
-
-        <section>
-            <h2>Contact Us</h2>
-            <p>Get in touch with us today to learn more about how we can help you grow.</p>
+            <h2>Secure Payment</h2>
+            <form id="payment-form">
+                <button id="checkout-button" type="button">Proceed to Checkout</button>
+            </form>
         </section>
     </main>
 
@@ -35,16 +28,23 @@
     <script src="https://js.stripe.com/v3/"></script>
 
     <script>
-        // Replace with your real Stripe Publishable Key
-        const stripe = Stripe('pk_test_51PwwklEovoaBMy97wL7sCG7p2oJ48jx1TUmjI6g6QA8c7Qanp6u7xZoNfbtuVR9q8Un7wnEula7d3XX5F4KbtZgC00z1rtcIRR'); 
+        // Replace with your actual Stripe Publishable Key
+        const stripe = Stripe('pk_test_51PwwklEovoaBMy97wL7sCG7p2oJ48jx1TUmjI6g6QA8c7Qanp6u7xZoNfbtuVR9q8Un7wnEula7d3XX5F4KbtZgC00z1rtcIRR');
 
         const checkoutButton = document.getElementById('checkout-button');
         checkoutButton.addEventListener('click', function () {
-            fetch('/api/create-checkout-session', {
+            fetch('/create-checkout-session', {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
             })
             .then(response => response.json())
             .then(session => {
+                // Log session for debugging
+                console.log('Session:', session);
+
+                // Redirect to Stripe Checkout
                 return stripe.redirectToCheckout({ sessionId: session.id });
             })
             .then(result => {
