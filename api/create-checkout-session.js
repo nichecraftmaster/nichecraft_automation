@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);  // Correct environment variable
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
     console.log('Received request to create a checkout session');
@@ -6,6 +6,8 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
         try {
             console.log('Creating Stripe session...');
+
+            const origin = req.headers.origin || 'https://nichecraft-automation.vercel.app'; // Fallback to your main domain
 
             const session = await stripe.checkout.sessions.create({
                 payment_method_types: ['card'],
@@ -22,8 +24,8 @@ export default async function handler(req, res) {
                     },
                 ],
                 mode: 'payment',
-                success_url: `${req.headers.origin}/success.html?session_id={CHECKOUT_SESSION_ID}`, // Include .html in URL
-                cancel_url: `${req.headers.origin}/cancel.html`, // Include .html in URL
+                success_url: `${origin}/success.html?session_id={CHECKOUT_SESSION_ID}`, // Dynamic origin
+                cancel_url: `${origin}/cancel.html`, // Dynamic origin
             });
 
             console.log('Session created successfully:', session.id);
