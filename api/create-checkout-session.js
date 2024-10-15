@@ -1,4 +1,4 @@
-const stripe = require('stripe')('sk_test_51PwwklEovoaBMy97CKqxlF5Yvho8qYaGewgCDHpLAFGmjioSaKLi899x1eccZ5cH2T1NrUpejCOjWll9Y2heGSz500sevLAtvu');
+const stripe = require('stripe')(process.env.sk_test_51PwwklEovoaBMy97CKqxlF5Yvho8qYaGewgCDHpLAFGmjioSaKLi899x1eccZ5cH2T1NrUpejCOjWll9Y2heGSz500sevLAtvu);
 
 export default async function handler(req, res) {
     console.log('Received request to create a checkout session');
@@ -22,8 +22,8 @@ export default async function handler(req, res) {
                     },
                 ],
                 mode: 'payment',
-                success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-                cancel_url: `${req.headers.origin}/cancel`,
+                success_url: `${req.headers.origin}/success.html?session_id={CHECKOUT_SESSION_ID}`, // Include .html in URL
+                cancel_url: `${req.headers.origin}/cancel.html`, // Include .html in URL
             });
 
             console.log('Session created successfully:', session.id);
