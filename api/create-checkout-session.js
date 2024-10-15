@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.sk_test_51PwwklEovoaBMy97CKqxlF5Yvho8qYaGewgCDHpLAFGmjioSaKLi899x1eccZ5cH2T1NrUpejCOjWll9Y2heGSz500sevLAtvu);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);  // Correct environment variable
 
 export default async function handler(req, res) {
     console.log('Received request to create a checkout session');
