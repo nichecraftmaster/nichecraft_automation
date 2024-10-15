@@ -28,13 +28,15 @@
     <script src="https://js.stripe.com/v3/"></script>
 
     <script>
-        // Replace with your real Stripe Publishable Key
-        const stripe = Stripe('pk_test_51PwwklEovoaBMy97wL7sCG7p2oJ48jx1TUmjI6g6QA8c7Qanp6u7xZoNfbtuVR9q8Un7wnEula7d3XX5F4KbtZgC00z1rtcIRR');
+        // Replace with your actual Stripe Publishable Key
+        const stripe = Stripe('pk_test_51PwwklEovoaBMy97wL7sCG7p2oJ48jx1TUmjI6g6QA8c7Qanp6u7xZoNfbtuVR9q8Un7wnEula7d3XX5F4KbtZgC00z1rtcIRR'); // Use your own publishable key
 
         const checkoutButton = document.getElementById('checkout-button');
         checkoutButton.addEventListener('click', function () {
             console.log('Checkout button clicked');
-            fetch('/api/create-checkout-session', {  // Use the correct /api path for Vercel
+
+            // Fetch the session ID from the backend
+            fetch('/api/create-checkout-session', {  // Make sure this matches the /api path for Vercel
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,6 +50,8 @@
             })
             .then(session => {
                 console.log('Session created:', session);
+
+                // Redirect to Stripe Checkout
                 return stripe.redirectToCheckout({ sessionId: session.id });
             })
             .then(result => {
