@@ -42,109 +42,57 @@ header nav ul li a:hover {
     border-radius: 5px;
 }
 
-/* Hero Section */
-#hero {
-    position: relative;
-    background: url('../assets/images/hero-bg.jpg') center center/cover no-repeat;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-    z-index: 2;
-}
-
-#hero h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-#hero p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-}
-
-.cta-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-btn:hover {
-    background-color: #0056b3;
-}
-
-/* Services Section */
-#services {
+/* About Section */
+#about {
     padding: 80px 0;
     background-color: #f4f4f4;
     text-align: center;
 }
 
-#services h2 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
+.about-container {
+    width: 80%;
+    margin: 0 auto;
 }
 
-.service-list {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.about-text {
+    text-align: left;
+    margin-top: 40px;
 }
 
-.service {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    margin: 20px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease;
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
 }
 
-.service:hover {
-    transform: translateY(-10px);
+.subheading {
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 10px;
 }
 
-.service img {
-    max-width: 100%;
-    border-radius: 10px;
+h2 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-top: 40px;
+    margin-bottom: 15px;
 }
 
-.service h3 {
-    margin: 20px 0 10px;
-    font-size: 1.8rem;
-}
-
-.service p {
+.about-text p {
     font-size: 1.2rem;
     color: #666;
     margin-bottom: 20px;
 }
 
-.service button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.values-list {
+    padding-left: 20px;
 }
 
-.service button:hover {
-    background-color: #0056b3;
+.values-list li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
 }
 
 /* Footer */
@@ -162,20 +110,19 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .service-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .service {
+    .about-container {
         width: 90%;
     }
 
-    #hero h1 {
+    h1 {
         font-size: 2.5rem;
     }
 
-    #hero p {
-        font-size: 1.2rem;
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
     }
 }
