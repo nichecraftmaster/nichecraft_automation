@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Body and Fonts */
+/* Body and Font */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f7f7f7;
@@ -51,10 +51,11 @@ header nav ul li a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content {
-    color: white;
     z-index: 2;
 }
 
