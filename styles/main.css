@@ -1,1 +1,180 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Body and Fonts */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Navigation */
+header {
+    background: #333;
+    color: white;
+    padding: 15px 0;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+#hero {
+    position: relative;
+    background: url('../assets/images/hero-bg.jpg') center center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    color: white;
+    z-index: 2;
+}
+
+#hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Services Section */
+#services {
+    padding: 80px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.service-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+}
+
+.service img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.service h3 {
+    margin: 20px 0 10px;
+    font-size: 1.8rem;
+}
+
+.service p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.service button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.service button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service {
+        width: 90%;
+    }
+
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+
+    #hero p {
+        font-size: 1.2rem;
+    }
+}
